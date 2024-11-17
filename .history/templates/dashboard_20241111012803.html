@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="dashboard">
+        <h2>Welcome, Customer</h2>
+        <a href="#">Search Flights</a>
+        <a href="#">View Current Bookings</a>
+        <a href="#">View Travel History</a>
+        <a href="#">Account Details</a>
+        
+        <!-- Example Feedback Form -->
+        <h3>Provide Feedback</h3>
+        <form action="{{ url_for('submit_feedback') }}" method="POST">
+            <label for="rating">Rating:</label>
+            <select name="rating">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <br>
+            <label for="comments">Comments:</label>
+            <textarea name="comments"></textarea>
+            <br>
+            <input type="hidden" name="customer_id" value="1"> <!-- Example value -->
+            <input type="hidden" name="flight_id" value="101"> <!-- Example value -->
+            <button type="submit">Submit Feedback</button>
+        </form>
+    </div>
+{% endblock %}
